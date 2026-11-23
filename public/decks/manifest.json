@@ -1,0 +1,124 @@
+{
+  "name": "Ramform Hyperion",
+  "imo": "9676890",
+  "sheet": "GB1-ZA0011(1/3)F \u2014 Deck 5 & above, Profiles",
+  "source_pdf": "hyp-ga-plan.pdf",
+  "loa_m": 104.21,
+  "lbp_m": 96.304,
+  "breadth_m": 70.0,
+  "depth_m": 14.2,
+  "pages_in_pdf": 1,
+  "sheets_in_set": 3,
+  "missing_sheets": "Sheets 2/3 and 3/3 (likely Deck 4 and below) are not in the provided PDF",
+  "content_type": "vector CAD (AutoCAD LT 2024) \u2014 rasterized for textures",
+  "decks": [
+    {
+      "file": "deck5.png",
+      "px": [
+        1597,
+        992
+      ],
+      "crop_grid": [
+        320,
+        855,
+        820,
+        1165
+      ],
+      "id": "deck5",
+      "label": "Dekk 5",
+      "abl_mm": 21100,
+      "abl_m": 21.1,
+      "notes": "Hoveddekk med helidekk"
+    },
+    {
+      "file": "deck6.png",
+      "px": [
+        1086,
+        848
+      ],
+      "crop_grid": [
+        15,
+        870,
+        355,
+        1135
+      ],
+      "id": "deck6",
+      "label": "Dekk 6",
+      "abl_mm": 24050,
+      "abl_m": 24.05,
+      "notes": "Overbygg / verksted"
+    },
+    {
+      "file": "bridge.png",
+      "px": [
+        847,
+        384
+      ],
+      "crop_grid": [
+        15,
+        760,
+        280,
+        880
+      ],
+      "id": "bridge",
+      "label": "Brudekk",
+      "abl_mm": 26800,
+      "abl_m": 26.8,
+      "notes": "Bridge deck"
+    },
+    {
+      "file": "top-bridge.png",
+      "px": [
+        847,
+        448
+      ],
+      "crop_grid": [
+        15,
+        580,
+        280,
+        720
+      ],
+      "id": "top-bridge",
+      "label": "Topp bru",
+      "abl_mm": 29700,
+      "abl_m": 29.7,
+      "notes": "Top of bridge + interi\u00f8r"
+    },
+    {
+      "file": "targa.png",
+      "px": [
+        383,
+        384
+      ],
+      "crop_grid": [
+        280,
+        600,
+        400,
+        720
+      ],
+      "id": "targa",
+      "label": "Targa-dekk",
+      "abl_mm": 33100,
+      "abl_m": 33.1,
+      "notes": "Targa deck top"
+    },
+    {
+      "file": "platform.png",
+      "px": [
+        319,
+        384
+      ],
+      "crop_grid": [
+        400,
+        600,
+        500,
+        720
+      ],
+      "id": "platform",
+      "label": "Nedre plattform",
+      "abl_mm": 36500,
+      "abl_m": 36.5,
+      "notes": "Lower platform"
+    }
+  ]
+}
