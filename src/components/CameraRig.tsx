@@ -142,7 +142,7 @@ export function CameraRig() {
           minDistance={8}
           maxDistance={320}
           maxPolarAngle={Math.PI * 0.49}
-          target={[0, 4, 0]}
+          target={[0, 12, 0]}
         />
       )}
       {navMode === 'walk' && (

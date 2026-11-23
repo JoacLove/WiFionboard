@@ -46,6 +46,14 @@ export function Scene() {
         <Environment preset="city" environmentIntensity={0.25} />
       </Suspense>
 
+      {/* Ship centerline (CL) — world z = 0; all deck textures are CL-centered */}
+      <group>
+        <mesh position={[0, 18, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[0.08, 0.08, 120, 8]} />
+          <meshBasicMaterial color="#3db8ff" transparent opacity={0.55} depthWrite={false} />
+        </mesh>
+      </group>
+
       <Grid
         position={[0, -0.02, 0]}
         args={[200, 200]}

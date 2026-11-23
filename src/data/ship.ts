@@ -20,29 +20,90 @@ export type ShipMeta = {
   note: string
 }
 
-/** Sheet 1/3 only — Deck 5 & above. Lower decks missing from source PDF. */
+/** All three GA sheets — decks registered CL-over-CL on a shared AP/LBP frame grid. */
 export const SHIP: ShipMeta = {
   name: 'Ramform Hyperion',
   imo: '9676890',
-  sheet: 'GB1-ZA0011(1/3)F — Deck 5 & above',
+  sheet: 'GB1-ZA0011(1/3–3/3)F — Below TT to platform',
   loa_m: 104.21,
   breadth_m: 70,
-  note: 'Kun ark 1/3 i PDF. Dekk 4 og ned mangler.',
+  note:
+    'CL-alignment: sheets 2–3 share stern/bow crop + LOA→104.21 m scale; sheet 1 upper decks use frame-span scale and AP/LBP offsets (frame 0 ≈ stern).',
 }
 
 /**
- * Plan crops from the GA sheet, stacked at A.B.L. heights.
- * Size/offset are approximate — tuned so frames roughly align for planning.
- * Y in the scene = ABL − 21.1 m (Dekk 5 as floor).
+ * Deck planes at A.B.L. heights. Texture v-center = ship CL (world z = offset[1]).
+ * Full-hull decks (below-tt … deck4) share size/offset; sheet-1 decks are frame-registered.
+ * Scene Y = ABL − BASE_ABL.
  */
 export const DECKS: DeckDef[] = [
+  {
+    id: 'below-tt',
+    label: 'Below Tank Top',
+    abl_m: 1.0,
+    file: '/decks/below-tt.png',
+    size: [105.202, 69.473],
+    offset: [0, 0],
+    visible: true,
+    opacity: 0.82,
+  },
+  {
+    id: 'tank-top',
+    label: 'Tank Top',
+    abl_m: 3.6,
+    file: '/decks/tank-top.png',
+    size: [105.202, 69.473],
+    offset: [0, 0],
+    visible: true,
+    opacity: 0.84,
+  },
+  {
+    id: 'deck1',
+    label: 'Dekk 1',
+    abl_m: 8.1,
+    file: '/decks/deck1.png',
+    size: [105.202, 69.473],
+    offset: [0, 0],
+    visible: true,
+    opacity: 0.86,
+  },
+  {
+    id: 'deck2',
+    label: 'Dekk 2',
+    abl_m: 11.1,
+    file: '/decks/deck2.png',
+    size: [105.202, 69.473],
+    offset: [0, 0],
+    visible: true,
+    opacity: 0.88,
+  },
+  {
+    id: 'deck3',
+    label: 'Dekk 3',
+    abl_m: 14.2,
+    file: '/decks/deck3.png',
+    size: [105.202, 69.473],
+    offset: [0, 0],
+    visible: true,
+    opacity: 0.88,
+  },
+  {
+    id: 'deck4',
+    label: 'Dekk 4',
+    abl_m: 17.6,
+    file: '/decks/deck4.png',
+    size: [105.202, 69.473],
+    offset: [0, 0],
+    visible: true,
+    opacity: 0.9,
+  },
   {
     id: 'deck5',
     label: 'Dekk 5',
     abl_m: 21.1,
     file: '/decks/deck5.png',
-    size: [118, 72],
-    offset: [0, 0],
+    size: [52.096, 69.853],
+    offset: [-26.754, 0],
     visible: true,
     opacity: 0.92,
   },
@@ -51,38 +112,48 @@ export const DECKS: DeckDef[] = [
     label: 'Dekk 6',
     abl_m: 24.05,
     file: '/decks/deck6.png',
-    size: [78, 58],
-    offset: [-8, 0],
+    size: [48.501, 16.077],
+    offset: [-28.165, 0],
     visible: true,
-    opacity: 0.88,
+    opacity: 0.9,
   },
   {
     id: 'bridge',
     label: 'Brudekk',
     abl_m: 26.8,
     file: '/decks/bridge.png',
-    size: [42, 22],
-    offset: [12, 0],
+    size: [19.562, 15.831],
+    offset: [-19.853, 0],
     visible: true,
     opacity: 0.9,
+  },
+  {
+    id: 'jib-platform',
+    label: 'Jib-plattform',
+    abl_m: 27.3,
+    file: '/decks/jib-platform.png',
+    size: [22.507, 7.838],
+    offset: [-37.641, 0],
+    visible: true,
+    opacity: 0.75,
   },
   {
     id: 'top-bridge',
     label: 'Topp bru',
     abl_m: 29.7,
     file: '/decks/top-bridge.png',
-    size: [36, 20],
-    offset: [14, 0],
+    size: [8.552, 9.467],
+    offset: [-19.12, 0],
     visible: true,
-    opacity: 0.85,
+    opacity: 0.88,
   },
   {
     id: 'targa',
     label: 'Targa-dekk',
     abl_m: 33.1,
     file: '/decks/targa.png',
-    size: [18, 16],
-    offset: [18, 0],
+    size: [6.65, 11.192],
+    offset: [-19.965, 0],
     visible: true,
     opacity: 0.85,
   },
@@ -91,14 +162,15 @@ export const DECKS: DeckDef[] = [
     label: 'Nedre plattform',
     abl_m: 36.5,
     file: '/decks/platform.png',
-    size: [12, 12],
-    offset: [20, 0],
+    size: [4.494, 5.224],
+    offset: [-19.04, 0],
     visible: true,
     opacity: 0.85,
   },
 ]
 
-export const BASE_ABL = 21.1
+/** Scene Y origin = Below Tank Top. */
+export const BASE_ABL = 1.0
 
 export function deckY(abl_m: number) {
   return abl_m - BASE_ABL
